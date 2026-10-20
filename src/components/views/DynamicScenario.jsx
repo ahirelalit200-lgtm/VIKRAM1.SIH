@@ -1,8 +1,7 @@
-// VIKRAM1 — Page 8: Dynamic Scenario, Retasking & Minimal-Churn Engine
+// VIKRAM1 — Page 8: Dynamic Scenario, Retasking & Minimal-Churn Engine (Realistic Defence Enterprise Theme)
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { REPLANNING_SCENARIOS, INITIAL_MISSION_PLAN_A } from '../../data/scenarioData';
-import { DecisionEngineService } from '../../services/decisionEngineService';
 import {
   RefreshCw,
   AlertTriangle,
@@ -87,121 +86,121 @@ export default function DynamicScenario() {
   };
 
   return (
-    <div className="space-y-5 animate-fadeIn font-mono">
+    <div className="space-y-4 font-sans">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-[#1A2D54] gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#D5DCE3] gap-2">
         <div>
           <div className="flex items-center space-x-2">
-            <h2 className="text-xl font-bold font-display tracking-wider text-white">
+            <h2 className="text-xl font-bold tracking-tight text-[#1E3A5F]">
               DYNAMIC RETASKING & MINIMAL-CHURN REPLANNING
             </h2>
-            <span className="text-[10px] bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-500/30">
+            <span className="text-[10px] bg-[#EBF2F7] text-[#1E3A5F] px-2 py-0.5 rounded border border-[#CFDFEC] font-semibold font-mono">
               ADAPTIVE ENGINE
             </span>
           </div>
-          <p className="text-xs text-slate-400">
-            Simulate operational disruptions, detect boundary invalidations, and trigger dynamic AI replanning with minimal organizational churn.
+          <p className="text-xs text-[#60717D]">
+            Simulate operational disruptions, detect boundary invalidations, and trigger dynamic replanning with minimal organizational churn.
           </p>
         </div>
 
         <button
           onClick={handleReset}
-          className="px-3 py-1.5 rounded-lg bg-[#0E1A33] hover:bg-[#14264D] border border-[#1E3A70] text-slate-300 text-xs transition-colors flex items-center space-x-1.5"
+          className="px-3 py-1.5 rounded bg-white hover:bg-[#F4F6F8] border border-[#D5DCE3] text-[#263238] text-xs font-semibold transition-colors flex items-center space-x-1.5 shadow-sm"
         >
-          <RotateCcw className="w-3.5 h-3.5" />
+          <RotateCcw className="w-3.5 h-3.5 text-[#526B82]" />
           <span>RESET SCENARIO</span>
         </button>
       </div>
 
       {/* Simulation Triggers Bar */}
-      <div className="bg-[#091224]/90 border border-[#1A2D54] rounded-xl p-4 reticle-box space-y-3">
+      <div className="bg-white border border-[#D5DCE3] rounded-md p-4 shadow-sm space-y-3">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-cyan-400" />
+          <span className="text-xs font-bold text-[#1E3A5F] uppercase tracking-wide flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[#526B82]" />
             SELECT DISRUPTION SCENARIO TO SIMULATE:
           </span>
-          <span className="text-[10px] text-slate-400">1-CLICK DEMO TESTBENCH</span>
+          <span className="text-[10px] text-[#60717D] font-mono">TEST BENCH</span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <button
             onClick={() => handleSimulateScenario('WEATHER_CHANGE')}
             disabled={stage !== 'IDLE' && stage !== 'RESOLVED'}
-            className={`p-3 rounded-lg border text-left transition-all flex items-start space-x-2.5 ${
+            className={`p-3 rounded border text-left transition-colors flex items-start space-x-2.5 ${
               activeScenarioKey === 'WEATHER_CHANGE'
-                ? 'bg-amber-950/80 border-amber-500 text-amber-200 shadow-glow-cyan'
-                : 'bg-[#060D1E] border-[#142548] text-slate-300 hover:border-amber-500/40'
+                ? 'bg-[#FFF8EB] border-[#B7791F]'
+                : 'bg-[#F8FAFC] border-[#D5DCE3] hover:border-[#1E3A5F]'
             }`}
           >
-            <CloudRain className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+            <CloudRain className="w-5 h-5 text-[#B7791F] shrink-0 mt-0.5" />
             <div>
-              <div className="font-bold text-xs text-white">Simulate Weather Change</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">Convective storm in Sector B closes Corridor Alpha</div>
+              <div className="font-bold text-xs text-[#263238]">Simulate Weather Change</div>
+              <div className="text-[10px] text-[#60717D] mt-0.5">Convective storm in Sector B closes Corridor Alpha</div>
             </div>
           </button>
 
           <button
             onClick={() => handleSimulateScenario('AIRCRAFT_UNAVAILABLE')}
             disabled={stage !== 'IDLE' && stage !== 'RESOLVED'}
-            className={`p-3 rounded-lg border text-left transition-all flex items-start space-x-2.5 ${
+            className={`p-3 rounded border text-left transition-colors flex items-start space-x-2.5 ${
               activeScenarioKey === 'AIRCRAFT_UNAVAILABLE'
-                ? 'bg-rose-950/80 border-rose-500 text-rose-200 shadow-glow-red'
-                : 'bg-[#060D1E] border-[#142548] text-slate-300 hover:border-rose-500/40'
+                ? 'bg-[#FDF2F2] border-[#B84242]'
+                : 'bg-[#F8FAFC] border-[#D5DCE3] hover:border-[#1E3A5F]'
             }`}
           >
-            <Plane className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+            <Plane className="w-5 h-5 text-[#B84242] shrink-0 mt-0.5" />
             <div>
-              <div className="font-bold text-xs text-white">Simulate Aircraft Unavailable</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">VKR-101 hydraulic abort prior to takeoff</div>
+              <div className="font-bold text-xs text-[#263238]">Simulate Aircraft Unavailable</div>
+              <div className="text-[10px] text-[#60717D] mt-0.5">VKR-101 hydraulic abort prior to takeoff</div>
             </div>
           </button>
 
           <button
             onClick={() => handleSimulateScenario('CREW_UNAVAILABLE')}
             disabled={stage !== 'IDLE' && stage !== 'RESOLVED'}
-            className={`p-3 rounded-lg border text-left transition-all flex items-start space-x-2.5 ${
+            className={`p-3 rounded border text-left transition-colors flex items-start space-x-2.5 ${
               activeScenarioKey === 'CREW_UNAVAILABLE'
-                ? 'bg-purple-950/80 border-purple-500 text-purple-200'
-                : 'bg-[#060D1E] border-[#142548] text-slate-300 hover:border-purple-500/40'
+                ? 'bg-[#EBF2F7] border-[#1E3A5F]'
+                : 'bg-[#F8FAFC] border-[#D5DCE3] hover:border-[#1E3A5F]'
             }`}
           >
-            <Users className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+            <Users className="w-5 h-5 text-[#1E3A5F] shrink-0 mt-0.5" />
             <div>
-              <div className="font-bold text-xs text-white">Simulate Crew Unavailable</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">Lead Pilot CRW-01 duty limit exceeded</div>
+              <div className="font-bold text-xs text-[#263238]">Simulate Crew Unavailable</div>
+              <div className="text-[10px] text-[#60717D] mt-0.5">Lead Pilot CRW-01 duty limit exceeded</div>
             </div>
           </button>
 
           <button
             onClick={() => handleSimulateScenario('AIRSPACE_RESTRICTION')}
             disabled={stage !== 'IDLE' && stage !== 'RESOLVED'}
-            className={`p-3 rounded-lg border text-left transition-all flex items-start space-x-2.5 ${
+            className={`p-3 rounded border text-left transition-colors flex items-start space-x-2.5 ${
               activeScenarioKey === 'AIRSPACE_RESTRICTION'
-                ? 'bg-cyan-950/80 border-cyan-500 text-cyan-200'
-                : 'bg-[#060D1E] border-[#142548] text-slate-300 hover:border-cyan-500/40'
+                ? 'bg-[#EBF2F7] border-[#1E3A5F]'
+                : 'bg-[#F8FAFC] border-[#D5DCE3] hover:border-[#1E3A5F]'
             }`}
           >
-            <ShieldAlert className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+            <ShieldAlert className="w-5 h-5 text-[#526B82] shrink-0 mt-0.5" />
             <div>
-              <div className="font-bold text-xs text-white">Simulate Airspace Restriction</div>
-              <div className="text-[10px] text-slate-400 mt-0.5">Emergency TFR enacted in Sector A Upper Band</div>
+              <div className="font-bold text-xs text-[#263238]">Simulate Airspace Restriction</div>
+              <div className="text-[10px] text-[#60717D] mt-0.5">Emergency TFR enacted in Sector A Upper Band</div>
             </div>
           </button>
         </div>
       </div>
 
       {/* Dynamic Workflow Animation Pipeline */}
-      <div className="bg-[#091224]/90 border border-[#1A2D54] rounded-xl p-4 reticle-box space-y-3">
-        <div className="flex items-center justify-between pb-2 border-b border-[#142344]">
-          <span className="text-xs font-bold text-white uppercase tracking-wider">
+      <div className="bg-white border border-[#D5DCE3] rounded-md p-4 shadow-sm space-y-3">
+        <div className="flex items-center justify-between pb-2 border-b border-[#E5EAEF]">
+          <span className="text-xs font-bold text-[#1E3A5F] uppercase tracking-wide">
             DYNAMIC REPLANNING WORKFLOW LIFECYCLE
           </span>
-          <span className="text-[10px] text-cyan-300 font-bold">
+          <span className="text-[10px] text-[#263238] font-bold font-mono">
             STAGE: {stage}
           </span>
         </div>
 
-        {/* 6 Step Interactive Visual Pipeline */}
+        {/* 6 Step Visual Pipeline */}
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2 text-xs">
           {[
             { id: 'INITIAL', label: '1. INITIAL PLAN', desc: 'Plan A Baseline', active: stage !== 'IDLE' },
@@ -213,73 +212,73 @@ export default function DynamicScenario() {
           ].map((st, i) => (
             <div
               key={st.id}
-              className={`p-2.5 rounded-lg border text-left transition-all ${
+              className={`p-2.5 rounded border transition-colors ${
                 st.active
                   ? i === 5 && stage === 'RESOLVED'
-                    ? 'bg-emerald-950/80 border-emerald-400 text-emerald-200 shadow-glow-green'
+                    ? 'bg-[#EDF7F2] border-[#2E7D5B] text-[#2E7D5B]'
                     : i === 4 && stage === 'REPLANNING'
-                    ? 'bg-cyan-950/80 border-cyan-400 text-cyan-200 animate-pulse'
+                    ? 'bg-[#EBF2F7] border-[#1E3A5F] text-[#1E3A5F]'
                     : i === 3 && stage === 'INVALID_DETECTED'
-                    ? 'bg-rose-950/80 border-rose-500 text-rose-200'
-                    : 'bg-[#0E1B3B] border-cyan-500/40 text-slate-200'
-                  : 'bg-[#060D1E] border-[#142344] text-slate-500 opacity-60'
+                    ? 'bg-[#FDF2F2] border-[#B84242] text-[#B84242]'
+                    : 'bg-[#F8FAFC] border-[#1E3A5F] text-[#263238]'
+                  : 'bg-[#FAFCFD] border-[#E5EAEF] text-[#8295A5] opacity-60'
               }`}
             >
               <div className="font-bold text-[11px] leading-tight mb-1">{st.label}</div>
-              <div className="text-[9.5px] text-slate-400">{st.desc}</div>
+              <div className="text-[9.5px] text-[#60717D]">{st.desc}</div>
             </div>
           ))}
         </div>
 
         {/* Dynamic Transition Banner */}
         {stage === 'CONDITION_DETECTED' && (
-          <div className="p-3 rounded-lg bg-amber-950/60 border border-amber-500/60 text-amber-200 text-xs flex items-center justify-between animate-fadeIn">
+          <div className="p-3 rounded bg-[#FFF8EB] border border-[#F5E1B5] text-[#B7791F] text-xs flex items-center justify-between">
             <span className="flex items-center gap-2 font-bold">
-              <AlertTriangle className="w-4 h-4 text-amber-400 animate-bounce" />
+              <AlertTriangle className="w-4 h-4 text-[#B7791F]" />
               PLAN CHANGE DETECTED: {scenarioData?.conditionDetected}
             </span>
-            <span className="text-[10px] text-amber-300">SENSOR TRIGGER</span>
+            <span className="text-[10px] font-mono font-semibold">SENSOR TRIGGER</span>
           </div>
         )}
 
         {stage === 'REPLANNING' && (
-          <div className="p-3 rounded-lg bg-cyan-950/60 border border-cyan-500/60 text-cyan-200 text-xs flex items-center justify-between animate-fadeIn">
+          <div className="p-3 rounded bg-[#EBF2F7] border border-[#CFDFEC] text-[#1E3A5F] text-xs flex items-center justify-between">
             <span className="flex items-center gap-2 font-bold">
-              <RefreshCw className="w-4 h-4 text-cyan-400 animate-spin" />
+              <RefreshCw className="w-4 h-4 text-[#1E3A5F]" />
               VIKRAM1 IS RE-OPTIMISING... Localized repair solver preserving unchanged resources
             </span>
-            <span className="text-[10px] text-cyan-400 font-bold">SOLVING ILP...</span>
+            <span className="text-[10px] font-mono font-bold">SOLVING ILP...</span>
           </div>
         )}
 
         {stage === 'RESOLVED' && (
-          <div className="p-3 rounded-lg bg-emerald-950/60 border border-emerald-500/60 text-emerald-200 text-xs flex items-center justify-between animate-fadeIn">
+          <div className="p-3 rounded bg-[#EDF7F2] border border-[#C4E5D4] text-[#2E7D5B] text-xs flex items-center justify-between">
             <span className="flex items-center gap-2 font-bold">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <CheckCircle2 className="w-4 h-4 text-[#2E7D5B]" />
               NEW RECOMMENDED PLAN GENERATED: {scenarioData?.newPlan.name}
             </span>
-            <span className="text-[10px] text-emerald-400 font-bold">100% FEASIBLE</span>
+            <span className="text-[10px] font-mono font-bold">100% FEASIBLE</span>
           </div>
         )}
       </div>
 
       {/* MINIMAL-CHURN VISUALISATION: PLAN CHANGE ANALYSIS */}
       {stage === 'RESOLVED' && scenarioData && (
-        <div className="bg-[#091224]/90 border-2 border-emerald-500/50 rounded-xl p-5 shadow-glow-green space-y-4 animate-fadeIn">
-          <div className="flex items-center justify-between pb-2 border-b border-[#1A2E56]">
+        <div className="bg-white border border-[#D5DCE3] rounded-md p-4 shadow-sm space-y-4">
+          <div className="flex items-center justify-between pb-2 border-b border-[#E5EAEF]">
             <div className="flex items-center space-x-2">
-              <Layers className="w-5 h-5 text-emerald-400" />
+              <Layers className="w-5 h-5 text-[#1E3A5F]" />
               <div>
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider">
+                <h3 className="text-sm font-bold text-[#1E3A5F] uppercase tracking-wide">
                   PLAN CHANGE & MINIMAL-CHURN ANALYSIS
                 </h3>
-                <span className="text-xs text-emerald-300">
+                <span className="text-xs text-[#60717D]">
                   Targeted Heuristic: Maximizes operational stability by modifying only affected assets
                 </span>
               </div>
             </div>
 
-            <div className="px-3 py-1 rounded bg-emerald-950 border border-emerald-400 text-emerald-300 font-bold text-xs">
+            <div className="px-2.5 py-1 rounded bg-[#EDF7F2] border border-[#C4E5D4] text-[#2E7D5B] font-bold text-xs font-mono">
               {scenarioData.newPlan.churn.churnIndex}
             </div>
           </div>
@@ -287,88 +286,88 @@ export default function DynamicScenario() {
           {/* Comparison Cards: Previous Plan vs New Plan */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
             {/* Previous Baseline */}
-            <div className="p-4 rounded-xl bg-[#060D1E] border border-rose-500/30 space-y-2">
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="font-bold text-slate-200">PREVIOUS PLAN</span>
-                <span className="text-[10px] text-rose-400 font-bold">SUBOPTIMAL / VIOLATED</span>
+            <div className="p-3.5 rounded bg-[#FFF8F8] border border-[#F7C8C8] space-y-2">
+              <div className="flex items-center justify-between text-[#60717D]">
+                <span className="font-bold text-[#263238]">PREVIOUS PLAN</span>
+                <span className="text-[10px] text-[#B84242] font-bold font-mono">SUBOPTIMAL / VIOLATED</span>
               </div>
-              <div className="text-sm font-bold text-white">{scenarioData.previousPlan}</div>
-              <p className="text-[11px] text-slate-400">
-                Invalidated by: <strong className="text-rose-300">{scenarioData.violatedConstraint.title}</strong>
+              <div className="text-sm font-bold text-[#263238]">{scenarioData.previousPlan}</div>
+              <p className="text-[11px] text-[#60717D]">
+                Invalidated by: <strong className="text-[#B84242]">{scenarioData.violatedConstraint.title}</strong>
               </p>
             </div>
 
             {/* New Re-Optimized Plan */}
-            <div className="p-4 rounded-xl bg-[#08152E] border border-emerald-500/50 space-y-2">
-              <div className="flex items-center justify-between text-slate-400">
-                <span className="font-bold text-emerald-400">NEW RECOMMENDED PLAN</span>
-                <span className="text-[10px] text-emerald-400 font-bold">✓ FEASIBLE ({scenarioData.newPlan.feasibilityScore}%)</span>
+            <div className="p-3.5 rounded bg-[#EDF7F2] border border-[#C4E5D4] space-y-2">
+              <div className="flex items-center justify-between text-[#60717D]">
+                <span className="font-bold text-[#2E7D5B]">NEW RECOMMENDED PLAN</span>
+                <span className="text-[10px] text-[#2E7D5B] font-bold font-mono">✓ FEASIBLE ({scenarioData.newPlan.feasibilityScore}%)</span>
               </div>
-              <div className="text-sm font-bold text-white">{scenarioData.newPlan.name}</div>
-              <p className="text-[11px] text-slate-300">
-                Routing: <span className="text-cyan-300">{scenarioData.newPlan.routing}</span>
+              <div className="text-sm font-bold text-[#263238]">{scenarioData.newPlan.name}</div>
+              <p className="text-[11px] text-[#60717D]">
+                Routing: <span className="text-[#1E3A5F] font-semibold">{scenarioData.newPlan.routing}</span>
               </p>
             </div>
           </div>
 
           {/* Changed vs Unchanged Resources Breakdown */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Changed Resources (Red/Amber Border) */}
-            <div className="p-3.5 rounded-xl bg-[#060D1E] border border-amber-500/40 space-y-2">
-              <div className="flex items-center justify-between text-amber-400 text-xs font-bold uppercase">
+            {/* Changed Resources */}
+            <div className="p-3.5 rounded bg-[#FFF8EB] border border-[#F5E1B5] space-y-2">
+              <div className="flex items-center justify-between text-[#B7791F] text-xs font-bold uppercase">
                 <span>CHANGED RESOURCES (MINIMAL DELTA)</span>
-                <span className="text-[10px] bg-amber-950 px-2 py-0.5 rounded border border-amber-500/30">
+                <span className="text-[10px] bg-white px-2 py-0.5 rounded border border-[#F5E1B5] font-mono">
                   LOW CHURN
                 </span>
               </div>
-              <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                <div className="p-2 rounded bg-[#0A1429] border border-[#142344]">
-                  <div className="text-slate-400 text-[10px]">AIRCRAFT</div>
-                  <div className="text-amber-400 font-bold text-base">{scenarioData.newPlan.churn.changedAircraft}</div>
+              <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
+                <div className="p-2 rounded bg-white border border-[#F5E1B5]">
+                  <div className="text-[#60717D] text-[10px] font-sans">AIRCRAFT</div>
+                  <div className="text-[#B7791F] font-bold text-base">{scenarioData.newPlan.churn.changedAircraft}</div>
                 </div>
-                <div className="p-2 rounded bg-[#0A1429] border border-[#142344]">
-                  <div className="text-slate-400 text-[10px]">CREW</div>
-                  <div className="text-amber-400 font-bold text-base">{scenarioData.newPlan.churn.changedCrew}</div>
+                <div className="p-2 rounded bg-white border border-[#F5E1B5]">
+                  <div className="text-[#60717D] text-[10px] font-sans">CREW</div>
+                  <div className="text-[#B7791F] font-bold text-base">{scenarioData.newPlan.churn.changedCrew}</div>
                 </div>
-                <div className="p-2 rounded bg-[#0A1429] border border-[#142344]">
-                  <div className="text-slate-400 text-[10px]">FUEL DELTA</div>
-                  <div className="text-amber-400 font-bold text-base">{scenarioData.newPlan.churn.fuelImpact}</div>
+                <div className="p-2 rounded bg-white border border-[#F5E1B5]">
+                  <div className="text-[#60717D] text-[10px] font-sans">FUEL DELTA</div>
+                  <div className="text-[#B7791F] font-bold text-base">{scenarioData.newPlan.churn.fuelImpact}</div>
                 </div>
               </div>
             </div>
 
-            {/* Unchanged Resources (Green Border) */}
-            <div className="p-3.5 rounded-xl bg-[#060D1E] border border-emerald-500/40 space-y-2">
-              <div className="flex items-center justify-between text-emerald-400 text-xs font-bold uppercase">
+            {/* Unchanged Resources */}
+            <div className="p-3.5 rounded bg-[#EDF7F2] border border-[#C4E5D4] space-y-2">
+              <div className="flex items-center justify-between text-[#2E7D5B] text-xs font-bold uppercase">
                 <span>UNCHANGED RESOURCES (PRESERVED LOGISTICS)</span>
-                <span className="text-[10px] bg-emerald-950 px-2 py-0.5 rounded border border-emerald-500/30">
+                <span className="text-[10px] bg-white px-2 py-0.5 rounded border border-[#C4E5D4] font-mono font-bold">
                   82% PRESERVED
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-2 text-center text-xs">
-                <div className="p-2 rounded bg-[#0A1429] border border-[#142344]">
-                  <div className="text-slate-400 text-[10px]">AIRCRAFT PRESERVED</div>
-                  <div className="text-emerald-400 font-bold text-base">{scenarioData.newPlan.churn.unchangedAircraft}</div>
+              <div className="grid grid-cols-2 gap-2 text-center text-xs font-mono">
+                <div className="p-2 rounded bg-white border border-[#C4E5D4]">
+                  <div className="text-[#60717D] text-[10px] font-sans">AIRCRAFT PRESERVED</div>
+                  <div className="text-[#2E7D5B] font-bold text-base">{scenarioData.newPlan.churn.unchangedAircraft}</div>
                 </div>
-                <div className="p-2 rounded bg-[#0A1429] border border-[#142344]">
-                  <div className="text-slate-400 text-[10px]">CREW ROSTER PRESERVED</div>
-                  <div className="text-emerald-400 font-bold text-base">{scenarioData.newPlan.churn.unchangedCrew}</div>
+                <div className="p-2 rounded bg-white border border-[#C4E5D4]">
+                  <div className="text-[#60717D] text-[10px] font-sans">CREW ROSTER PRESERVED</div>
+                  <div className="text-[#2E7D5B] font-bold text-base">{scenarioData.newPlan.churn.unchangedCrew}</div>
                 </div>
               </div>
             </div>
           </div>
 
-          <p className="text-xs text-slate-300 leading-relaxed bg-[#050B17] p-3 rounded-lg border border-[#142548]">
-            💡 <strong>Algorithmic Explanation:</strong> {scenarioData.newPlan.explanation}
+          <p className="text-xs text-[#263238] leading-relaxed bg-[#F8FAFC] p-3 rounded border border-[#E5EAEF]">
+            <strong className="text-[#1E3A5F]">Algorithmic Explanation:</strong> {scenarioData.newPlan.explanation}
           </p>
 
-          <div className="flex items-center justify-between pt-2">
-            <span className="text-xs text-slate-400">
+          <div className="flex items-center justify-between pt-1">
+            <span className="text-xs text-[#60717D]">
               Disruption resolved without cascading schedule overhaul across squadron ground crews.
             </span>
             <button
               onClick={() => setApprovalModalOpen(true)}
-              className="px-5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs tracking-wider transition-all flex items-center space-x-1.5 shadow-glow-green"
+              className="px-4 py-1.5 rounded bg-[#2E7D5B] hover:bg-[#25664A] text-white font-semibold text-xs tracking-wide transition-colors flex items-center space-x-1.5 shadow-sm"
             >
               <FileSignature className="w-4 h-4" />
               <span>APPROVE REPLANNED DISPATCH</span>

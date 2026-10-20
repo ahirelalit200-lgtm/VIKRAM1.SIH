@@ -1,4 +1,4 @@
-// VIKRAM1 — Command Centre Left Navigation Bar
+// VIKRAM1 — Command Centre Left Navigation Bar (Realistic Charcoal Sidebar)
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 import {
@@ -12,7 +12,6 @@ import {
   RefreshCw,
   FileCheck2,
   Sliders,
-  Sparkles,
   Terminal,
   Database
 } from 'lucide-react';
@@ -21,11 +20,11 @@ export default function Sidebar() {
   const { currentView, setCurrentView, tourRunning } = useApp();
 
   const navItems = [
-    { id: 'dashboard', label: 'Command Dashboard', icon: LayoutDashboard, badge: 'LIVE' },
+    { id: 'dashboard', label: 'Command Dashboard', icon: LayoutDashboard, badge: 'LIVE', badgeColor: 'text-[#4ADE80] bg-[#162E22] border border-[#23583C]' },
     { id: 'planner', label: 'Mission Planner', icon: Compass, badge: 'AI-SYS' },
     { id: 'fleet', label: 'Fleet & Assets', icon: Plane, count: '32' },
     { id: 'crew', label: 'Crew Status', icon: Users, count: '24' },
-    { id: 'airspace', label: 'Airspace & Constraints', icon: ShieldAlert, badge: '06', badgeColor: 'text-amber-400 bg-amber-950/60' },
+    { id: 'airspace', label: 'Airspace & Constraints', icon: ShieldAlert, badge: '06', badgeColor: 'text-[#FBBF24] bg-[#3B2C16] border border-[#6B4B1B]' },
     { id: 'weather', label: 'Weather & Environment', icon: CloudSun, status: 'NOMINAL' },
     { id: 'engine', label: 'AI Decision Engine', icon: Cpu, badge: 'PARETO' },
     { id: 'scenario', label: 'Scenario / Replanning', icon: RefreshCw, badge: 'CHURN' },
@@ -34,12 +33,12 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-[#060D1E]/95 border-r border-[#1A2D54] flex flex-col justify-between shrink-0 h-[calc(100vh-4rem)] sticky top-16 select-none overflow-y-auto">
+    <aside className="w-64 bg-[#1F2933] border-r border-[#2D3945] flex flex-col justify-between shrink-0 h-[calc(100vh-4rem)] sticky top-16 select-none overflow-y-auto">
       {/* Navigation List */}
       <div className="py-4 px-2 space-y-1">
-        <div className="px-3 pb-2 text-[10px] font-mono uppercase tracking-widest text-slate-400 border-b border-[#142344] mb-2 flex items-center justify-between">
+        <div className="px-3 pb-2 text-[10px] font-mono uppercase tracking-wider text-[#8295A5] border-b border-[#2D3945] mb-2 flex items-center justify-between font-semibold">
           <span>OPERATIONAL MODULES</span>
-          <span className="text-cyan-400">v2.6-SIH</span>
+          <span className="text-[#A0AEC0]">v2.6-SIH</span>
         </div>
 
         {navItems.map((item) => {
@@ -51,16 +50,16 @@ export default function Sidebar() {
               key={item.id}
               onClick={() => setCurrentView(item.id)}
               disabled={tourRunning}
-              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-mono tracking-wide transition-all duration-150 group relative text-left ${
+              className={`w-full flex items-center justify-between px-3 py-2 rounded text-xs tracking-wide transition-colors text-left ${
                 isActive
-                  ? 'bg-gradient-to-r from-cyan-950/80 to-[#0C1B3B] text-cyan-300 font-semibold border-l-2 border-cyan-400 shadow-hud-border'
-                  : 'text-slate-400 hover:text-slate-100 hover:bg-[#0B1733]/60'
+                  ? 'bg-[#15202B] text-white font-semibold border-l-2 border-[#526B82]'
+                  : 'text-[#CBD5E1] hover:text-white hover:bg-[#2A3744]'
               }`}
             >
               <div className="flex items-center space-x-2.5 truncate">
                 <Icon
-                  className={`w-4 h-4 shrink-0 transition-colors ${
-                    isActive ? 'text-cyan-400 drop-shadow-sm' : 'text-slate-500 group-hover:text-cyan-300'
+                  className={`w-4 h-4 shrink-0 ${
+                    isActive ? 'text-white' : 'text-[#8295A5]'
                   }`}
                 />
                 <span className="truncate">{item.label}</span>
@@ -69,15 +68,15 @@ export default function Sidebar() {
               {/* Badge/Count */}
               {item.badge && (
                 <span
-                  className={`text-[9px] px-1.5 py-0.5 rounded font-bold font-mono tracking-wider ${
-                    item.badgeColor || 'bg-cyan-950 text-cyan-300 border border-cyan-500/30'
+                  className={`text-[9px] px-1.5 py-0.5 rounded font-mono font-semibold tracking-wider ${
+                    item.badgeColor || 'bg-[#2A3744] text-[#E2E8F0] border border-[#3E4F60]'
                   }`}
                 >
                   {item.badge}
                 </span>
               )}
               {item.count && (
-                <span className="text-[10px] text-slate-500 font-mono px-1">
+                <span className="text-[10px] text-[#8295A5] font-mono px-1">
                   {item.count}
                 </span>
               )}
@@ -87,19 +86,19 @@ export default function Sidebar() {
       </div>
 
       {/* Bottom DSSC / SIH Metadata Card */}
-      <div className="p-3 m-2 rounded-lg bg-[#081226] border border-[#182A4F] text-[11px] font-mono text-slate-400 space-y-2">
-        <div className="flex items-center justify-between text-[10px] text-cyan-400/90 font-semibold uppercase tracking-wider">
+      <div className="p-3 m-2 rounded bg-[#15202B] border border-[#2D3945] text-[11px] font-mono text-[#9AA5B1] space-y-1.5">
+        <div className="flex items-center justify-between text-[10px] text-white font-semibold uppercase tracking-wider">
           <span className="flex items-center gap-1">
-            <Terminal className="w-3 h-3" /> SIH 2026 PS-26250
+            <Terminal className="w-3 h-3 text-[#526B82]" /> SIH 2026 PS-26250
           </span>
-          <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="inline-block w-2 h-2 rounded-full bg-[#2E7D5B]" />
         </div>
-        <p className="text-[10px] leading-relaxed text-slate-300">
-          <strong className="text-white">Ministry of Defence</strong> / Defence Services Staff College
+        <p className="text-[10px] leading-relaxed text-[#CBD5E1]">
+          <strong className="text-white">Ministry of Defence</strong> / DSSC
         </p>
-        <div className="pt-1 border-t border-[#142344] flex items-center justify-between text-[9px] text-slate-400">
-          <span>AI Constraint Engine:</span>
-          <span className="text-emerald-400 font-bold">ONLINE</span>
+        <div className="pt-1.5 border-t border-[#2D3945] flex items-center justify-between text-[9px] text-[#8295A5]">
+          <span>Decision Engine:</span>
+          <span className="text-[#4ADE80] font-semibold">ONLINE</span>
         </div>
       </div>
     </aside>

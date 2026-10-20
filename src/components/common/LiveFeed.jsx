@@ -1,4 +1,4 @@
-// VIKRAM1 — Live System Telemetry & Event Feed
+// VIKRAM1 — Live System Telemetry & Event Feed (Realistic Enterprise Theme)
 import React, { useState } from 'react';
 import { Radio, AlertTriangle, ShieldCheck, Cpu, Info, Filter } from 'lucide-react';
 
@@ -21,54 +21,54 @@ export default function LiveFeed() {
 
   const typeConfig = {
     INFO: {
-      badge: 'bg-cyan-950 text-cyan-300 border-cyan-500/30',
-      dot: 'bg-cyan-400',
+      badge: 'bg-[#EBF2F7] text-[#1E3A5F] border-[#CFDFEC]',
+      dot: 'bg-[#1E3A5F]',
       icon: Info,
     },
     WARNING: {
-      badge: 'bg-amber-950 text-amber-300 border-amber-500/30',
-      dot: 'bg-amber-400',
+      badge: 'bg-[#FFF8EB] text-[#B7791F] border-[#F5E1B5]',
+      dot: 'bg-[#B7791F]',
       icon: AlertTriangle,
     },
     ALERT: {
-      badge: 'bg-rose-950 text-rose-300 border-rose-500/30',
-      dot: 'bg-rose-400',
+      badge: 'bg-[#FDF2F2] text-[#B84242] border-[#F7C8C8]',
+      dot: 'bg-[#B84242]',
       icon: AlertTriangle,
     },
     AI: {
-      badge: 'bg-emerald-950 text-emerald-300 border-emerald-500/30',
-      dot: 'bg-emerald-400',
+      badge: 'bg-[#EDF7F2] text-[#2E7D5B] border-[#C4E5D4]',
+      dot: 'bg-[#2E7D5B]',
       icon: Cpu,
     },
   };
 
   return (
-    <div className="bg-[#091224]/90 border border-[#1A2D54] rounded-xl p-4 flex flex-col h-full font-mono">
+    <div className="bg-white border border-[#D5DCE3] rounded-md p-4 flex flex-col h-full font-sans shadow-sm">
       {/* Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-[#142344]">
+      <div className="flex items-center justify-between pb-3 border-b border-[#E5EAEF]">
         <div className="flex items-center space-x-2">
-          <Radio className="w-4 h-4 text-cyan-400 animate-pulse" />
-          <h3 className="text-xs font-bold text-white tracking-wider uppercase">
+          <Radio className="w-4 h-4 text-[#526B82]" />
+          <h3 className="text-xs font-bold text-[#1E3A5F] tracking-wide uppercase">
             LIVE SYSTEM FEED
           </h3>
         </div>
-        <span className="text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-500/30 flex items-center gap-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+        <span className="text-[10px] text-[#2E7D5B] bg-[#EDF7F2] px-2 py-0.5 rounded border border-[#C4E5D4] font-semibold flex items-center gap-1 font-mono">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#2E7D5B]" />
           REAL-TIME
         </span>
       </div>
 
       {/* Filter Chips */}
-      <div className="flex items-center space-x-1.5 py-2.5 text-[10px] border-b border-[#142344]/60">
-        <span className="text-slate-500 text-[10px]">FILTER:</span>
+      <div className="flex items-center space-x-1.5 py-2.5 text-[10px] border-b border-[#E5EAEF]">
+        <span className="text-[#60717D] text-[10px] font-semibold">FILTER:</span>
         {['ALL', 'AI', 'INFO', 'WARNING', 'ALERT'].map((t) => (
           <button
             key={t}
             onClick={() => setFilter(t)}
-            className={`px-2 py-0.5 rounded transition-colors ${
+            className={`px-2 py-0.5 rounded transition-colors font-mono font-semibold ${
               filter === t
-                ? 'bg-cyan-500 text-black font-bold'
-                : 'bg-[#0E1A36] text-slate-400 hover:text-white'
+                ? 'bg-[#1E3A5F] text-white'
+                : 'bg-[#F4F6F8] text-[#526B82] hover:bg-[#E8ECF0]'
             }`}
           >
             {t}
@@ -80,28 +80,27 @@ export default function LiveFeed() {
       <div className="mt-2 space-y-2 overflow-y-auto max-h-[380px] pr-1">
         {filteredFeed.map((item) => {
           const config = typeConfig[item.type] || typeConfig.INFO;
-          const Icon = config.icon;
 
           return (
             <div
               key={item.id}
-              className="p-2 rounded-lg bg-[#070E1E] hover:bg-[#0B1733] border border-[#142344] transition-colors group flex items-start space-x-2.5 text-xs"
+              className="p-2.5 rounded bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E5EAEF] transition-colors flex items-start space-x-2.5 text-xs"
             >
-              <div className="mt-0.5 shrink-0">
+              <div className="mt-1 shrink-0">
                 <span className={`w-2 h-2 rounded-full inline-block ${config.dot}`} />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center justify-between text-[10px] mb-0.5">
-                  <span className="text-slate-400 font-bold">{item.time}</span>
+                <div className="flex items-center justify-between text-[10px] mb-0.5 font-mono">
+                  <span className="text-[#263238] font-bold">{item.time}</span>
                   <span className={`px-1.5 py-0.2 rounded text-[9px] border font-bold ${config.badge}`}>
                     {item.type}
                   </span>
                 </div>
-                <p className="text-slate-200 text-[11px] leading-tight group-hover:text-cyan-200">
+                <p className="text-[#263238] text-[11px] leading-tight">
                   {item.text}
                 </p>
-                <div className="text-[9px] text-slate-500 mt-1">
-                  TAG: <span className="text-slate-400">[{item.tag}]</span>
+                <div className="text-[9px] text-[#60717D] font-mono mt-1">
+                  TAG: <span className="text-[#526B82]">[{item.tag}]</span>
                 </div>
               </div>
             </div>

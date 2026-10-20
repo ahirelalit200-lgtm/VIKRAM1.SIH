@@ -3,120 +3,73 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-/* Custom scrollbars */
+/* Professional enterprise scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #060b18;
+  background: #F4F6F8;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2e50;
-  border-radius: 3px;
+  background: #CBD5E1;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00F0FF;
+  background: #94A3B8;
 }
 
-/* Tactical Background Pattern */
-.bg-tactical-grid {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+/* Clean enterprise content card */
+.content-card {
+  background-color: #FFFFFF;
+  border: 1px solid #D5DCE3;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
 }
 
-.bg-dots-pattern {
-  background-size: 20px 20px;
-  background-image: radial-gradient(rgba(0, 240, 255, 0.12) 1px, transparent 1px);
+.content-card-header {
+  border-bottom: 1px solid #E5EAEF;
+  padding: 12px 16px;
+  background-color: #FAFCFD;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
-/* Glassmorphism tactical card */
-.glass-panel {
-  background: rgba(9, 17, 34, 0.82);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(27, 44, 82, 0.8);
+/* Subtle table row hover */
+.table-row-hover:hover {
+  background-color: #F8FAFC;
 }
 
-.glass-panel-glow {
-  background: rgba(9, 17, 34, 0.9);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(0, 240, 255, 0.28);
-  box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.15);
+/* Status Badges */
+.badge-success {
+  background-color: #EDF7F2;
+  color: #2E7D5B;
+  border: 1px solid #C4E5D4;
 }
 
-/* Reticle corner accents */
-.reticle-box {
-  position: relative;
-}
-.reticle-box::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #00F0FF;
-  border-left: 2px solid #00F0FF;
-  pointer-events: none;
-}
-.reticle-box::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 8px;
-  height: 8px;
-  border-bottom: 2px solid #00F0FF;
-  border-right: 2px solid #00F0FF;
-  pointer-events: none;
+.badge-warning {
+  background-color: #FFF8EB;
+  color: #B7791F;
+  border: 1px solid #F5E1B5;
 }
 
-/* Scanline subtle CRT effect */
-.crt-overlay {
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%, 
-    rgba(0, 0, 0, 0.25) 50%
-  );
-  background-size: 100% 4px;
-  pointer-events: none;
+.badge-critical {
+  background-color: #FDF2F2;
+  color: #B84242;
+  border: 1px solid #F7C8C8;
 }
 
-/* Glowing text */
-.text-glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
-}
-.text-glow-green {
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
-}
-.text-glow-red {
-  text-shadow: 0 0 10px rgba(255, 51, 85, 0.6);
+.badge-neutral {
+  background-color: #EDF1F5;
+  color: #526B82;
+  border: 1px solid #D5DCE3;
 }
 
-/* Radar rotation */
-@keyframes radarSweep {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.radar-sweep-anim {
-  animation: radarSweep 5s linear infinite;
-  transform-origin: center center;
-}
-
-/* Pulse beacon */
-@keyframes beaconPulse {
-  0% { transform: scale(0.9); opacity: 0.9; }
-  50% { transform: scale(1.4); opacity: 0.2; }
-  100% { transform: scale(0.9); opacity: 0.9; }
-}
-.beacon-pulse {
-  animation: beaconPulse 2s ease-in-out infinite;
+.badge-primary {
+  background-color: #EBF2F7;
+  color: #1E3A5F;
+  border: 1px solid #CFDFEC;
 }

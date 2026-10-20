@@ -1,4 +1,4 @@
-// VIKRAM1 — Page 1: Main Command Dashboard
+// VIKRAM1 — Page 1: Main Command Dashboard (Realistic Defence Enterprise Theme)
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 import MetricCard from '../common/MetricCard';
@@ -16,7 +16,6 @@ import {
   CheckCircle2,
   HelpCircle,
   ArrowRight,
-  Sparkles,
   Zap
 } from 'lucide-react';
 
@@ -31,29 +30,29 @@ export default function CommandDashboard() {
   } = useApp();
 
   return (
-    <div className="space-y-5 animate-fadeIn font-mono">
+    <div className="space-y-4 font-sans">
       {/* Dashboard Top Header Title Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-[#1A2D54] gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#D5DCE3] gap-2">
         <div>
           <div className="flex items-center space-x-2">
-            <h2 className="text-xl font-bold font-display tracking-wider text-white">
+            <h2 className="text-xl font-bold tracking-tight text-[#1E3A5F]">
               VIKRAM1 COMMAND CENTRE
             </h2>
-            <span className="text-[10px] bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-500/30">
+            <span className="text-[10px] bg-[#EBF2F7] text-[#1E3A5F] px-2 py-0.5 rounded border border-[#CFDFEC] font-semibold font-mono">
               OPERATIONAL OVERVIEW
             </span>
           </div>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-[#60717D]">
             Real-Time Resource Ingestion, Continuous Constraint Verification & Explainable Decision Support
           </p>
         </div>
 
-        <div className="flex items-center space-x-2 text-xs">
-          <div className="px-3 py-1 rounded bg-[#09142B] border border-emerald-500/30 text-emerald-400 font-bold flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <div className="flex items-center space-x-2 text-xs font-mono">
+          <div className="px-2.5 py-1 rounded bg-[#EDF7F2] border border-[#C4E5D4] text-[#2E7D5B] font-semibold flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-[#2E7D5B]" />
             <span>SYSTEM STATUS: OPERATIONAL</span>
           </div>
-          <div className="px-2.5 py-1 rounded bg-amber-950/40 border border-amber-600/40 text-amber-300 text-[10px]">
+          <div className="px-2 py-1 rounded bg-[#FFF8EB] border border-[#F5E1B5] text-[#B7791F] text-[10px] font-semibold">
             DEMO / SYNTHETIC DATA
           </div>
         </div>
@@ -129,23 +128,23 @@ export default function CommandDashboard() {
       <DecisionPipeline activeStage={5} />
 
       {/* Active Plan Recommendation & Sign-Off Banner */}
-      <div className="p-4 rounded-xl bg-gradient-to-r from-[#08152F] to-[#0A1A3B] border border-cyan-500/40 shadow-hud-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="p-4 rounded-md bg-white border border-[#D5DCE3] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="space-y-1">
           <div className="flex items-center space-x-2">
-            <span className="text-xs font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-cyan-400" />
+            <span className="text-xs font-bold text-[#1E3A5F] uppercase tracking-wide flex items-center gap-1.5">
+              <Zap className="w-4 h-4 text-[#526B82]" />
               CURRENT ACTIVE RECOMMENDATION: {activePlan.name}
             </span>
-            <span className="text-[10px] bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30 font-bold">
+            <span className="text-[10px] bg-[#EDF7F2] text-[#2E7D5B] px-2 py-0.5 rounded border border-[#C4E5D4] font-bold font-mono">
               FEASIBILITY: 96%
             </span>
             {planApproved && (
-              <span className="text-[10px] bg-emerald-500 text-black px-2 py-0.5 rounded font-bold">
+              <span className="text-[10px] bg-[#2E7D5B] text-white px-2 py-0.5 rounded font-bold font-mono">
                 OFFICIALLY APPROVED
               </span>
             )}
           </div>
-          <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-xs text-[#60717D] max-w-2xl leading-relaxed">
             Formulated for <strong>Scenario Alpha-07 (CAP Sortie)</strong>. Optimised allocation across Base Alpha assets with zero constraint conflicts and +14% fuel efficiency.
           </p>
         </div>
@@ -153,18 +152,18 @@ export default function CommandDashboard() {
         <div className="flex flex-wrap items-center gap-2.5 shrink-0">
           <button
             onClick={() => setExplainModalOpen(true)}
-            className="px-3.5 py-2 rounded-lg bg-[#0C1A36] hover:bg-[#122752] border border-[#1E3A70] text-cyan-300 text-xs font-bold transition-all flex items-center space-x-1.5"
+            className="px-3 py-1.5 rounded bg-white hover:bg-[#F4F6F8] border border-[#D5DCE3] text-[#1E3A5F] text-xs font-semibold transition-colors flex items-center space-x-1.5"
           >
-            <HelpCircle className="w-3.5 h-3.5" />
+            <HelpCircle className="w-3.5 h-3.5 text-[#526B82]" />
             <span>WHY THIS PLAN?</span>
           </button>
 
           <button
             onClick={() => setApprovalModalOpen(true)}
-            className={`px-4 py-2 rounded-lg text-xs font-bold tracking-wider transition-all flex items-center space-x-1.5 ${
+            className={`px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition-colors flex items-center space-x-1.5 shadow-sm ${
               planApproved
-                ? 'bg-emerald-950 border border-emerald-500 text-emerald-300'
-                : 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-glow-green'
+                ? 'bg-[#EDF7F2] border border-[#C4E5D4] text-[#2E7D5B]'
+                : 'bg-[#2E7D5B] hover:bg-[#25664A] text-white'
             }`}
           >
             <CheckCircle2 className="w-4 h-4" />
@@ -173,7 +172,7 @@ export default function CommandDashboard() {
 
           <button
             onClick={() => setCurrentView('planner')}
-            className="px-3.5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black text-xs font-bold transition-all flex items-center space-x-1"
+            className="px-3.5 py-1.5 rounded bg-[#1E3A5F] hover:bg-[#162C47] text-white text-xs font-semibold transition-colors flex items-center space-x-1 shadow-sm"
           >
             <span>MISSION PLANNER</span>
             <ArrowRight className="w-3.5 h-3.5" />

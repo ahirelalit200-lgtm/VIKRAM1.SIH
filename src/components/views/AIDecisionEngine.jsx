@@ -1,4 +1,4 @@
-// VIKRAM1 — Page 7: AI Optimization Centre & Pareto Frontier
+// VIKRAM1 — Page 7: AI Optimization Centre & Pareto Frontier (Realistic Defence Enterprise Theme)
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { PARETO_PLANS } from '../../data/scenarioData';
@@ -11,7 +11,6 @@ import {
   Layers,
   ArrowRight,
   ShieldCheck,
-  TrendingUp,
   FileSignature
 } from 'lucide-react';
 
@@ -49,44 +48,44 @@ export default function AIDecisionEngine() {
   };
 
   return (
-    <div className="space-y-5 animate-fadeIn font-mono">
+    <div className="space-y-4 font-sans">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 border-b border-[#1A2D54] gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#D5DCE3] gap-2">
         <div>
           <div className="flex items-center space-x-2">
-            <h2 className="text-xl font-bold font-display tracking-wider text-white">
+            <h2 className="text-xl font-bold tracking-tight text-[#1E3A5F]">
               AI DECISION & OPTIMISATION CENTRE
             </h2>
-            <span className="text-[10px] bg-cyan-950 text-cyan-300 px-2 py-0.5 rounded border border-cyan-500/30">
+            <span className="text-[10px] bg-[#EBF2F7] text-[#1E3A5F] px-2 py-0.5 rounded border border-[#CFDFEC] font-semibold font-mono">
               PARETO SOLVER
             </span>
           </div>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-[#60717D]">
             Multi-objective constraint programming engine synthesizing non-dominated operational plans.
           </p>
         </div>
 
-        <div className="px-3 py-1 rounded bg-[#09152B] border border-cyan-500/30 text-cyan-400 text-xs font-bold flex items-center gap-1.5">
-          <Cpu className="w-4 h-4 text-cyan-400" />
+        <div className="px-3 py-1 rounded bg-[#EBF2F7] border border-[#CFDFEC] text-[#1E3A5F] text-xs font-semibold flex items-center gap-1.5 font-mono">
+          <Cpu className="w-4 h-4 text-[#526B82]" />
           <span>INTEGER LINEAR PROGRAMMING (ILP) SOLVER: READY</span>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Left Column: Synthetic Objective Functions Sliders (5 cols) */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="bg-[#091224]/90 border border-[#1A2D54] rounded-xl p-4 reticle-box space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-[#142344]">
+          <div className="bg-white border border-[#D5DCE3] rounded-md p-4 shadow-sm space-y-3.5">
+            <div className="flex items-center justify-between pb-2 border-b border-[#E5EAEF]">
               <div className="flex items-center space-x-2">
-                <Sliders className="w-4 h-4 text-cyan-400" />
-                <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+                <Sliders className="w-4 h-4 text-[#526B82]" />
+                <h3 className="text-xs font-bold text-[#1E3A5F] uppercase tracking-wide">
                   OBJECTIVE FUNCTION WEIGHTS (α / β / γ)
                 </h3>
               </div>
-              <span className="text-[10px] text-slate-400">TUNE SOLVER</span>
+              <span className="text-[10px] text-[#60717D] font-mono">TUNE SOLVER</span>
             </div>
 
-            <p className="text-[11px] text-slate-400 leading-normal">
+            <p className="text-[11px] text-[#60717D] leading-normal">
               Adjust objective function priorities to re-weight resource cost versus stability and fuel economy.
             </p>
 
@@ -100,9 +99,9 @@ export default function AIDecisionEngine() {
                 { key: 'planStability', label: 'Plan Stability (Min-Churn)', val: weights.planStability },
               ].map((item) => (
                 <div key={item.key} className="space-y-1">
-                  <div className="flex justify-between text-slate-300 text-[11px]">
-                    <span>{item.label}:</span>
-                    <span className="text-cyan-400 font-bold">{item.val}%</span>
+                  <div className="flex justify-between text-[#263238] text-[11px]">
+                    <span className="font-medium">{item.label}:</span>
+                    <span className="text-[#1E3A5F] font-bold font-mono">{item.val}%</span>
                   </div>
                   <input
                     type="range"
@@ -110,14 +109,14 @@ export default function AIDecisionEngine() {
                     max="100"
                     value={item.val}
                     onChange={(e) => handleWeightChange(item.key, e.target.value)}
-                    className="w-full accent-cyan-400 h-1.5 bg-[#050C1B] rounded-lg cursor-pointer"
+                    className="w-full accent-[#1E3A5F] h-1.5 bg-[#E2E8F0] rounded cursor-pointer"
                   />
                 </div>
               ))}
             </div>
 
-            <div className="pt-2 border-t border-[#142344] flex justify-between items-center text-[10px] text-slate-500">
-              <span>SOLVER HEURISTIC: MULTI-OBJECTIVE NSGA-II</span>
+            <div className="pt-2 border-t border-[#E5EAEF] flex justify-between items-center text-[10px] text-[#60717D]">
+              <span className="font-mono">SOLVER: MULTI-OBJECTIVE NSGA-II</span>
               <button
                 onClick={() =>
                   setWeights({
@@ -129,7 +128,7 @@ export default function AIDecisionEngine() {
                     planStability: 90,
                   })
                 }
-                className="text-cyan-400 hover:text-white"
+                className="text-[#1E3A5F] hover:underline font-semibold"
               >
                 RESET DEFAULTS
               </button>
@@ -140,16 +139,16 @@ export default function AIDecisionEngine() {
         {/* Right Column: Pareto Frontier Candidates + Commander Review (7 cols) */}
         <div className="lg:col-span-7 space-y-4">
           {/* Visual Pareto Frontier Card Comparison */}
-          <div className="bg-[#091224]/90 border border-[#1A2D54] rounded-xl p-4 font-mono reticle-box space-y-4">
-            <div className="flex items-center justify-between pb-2 border-b border-[#142344]">
+          <div className="bg-white border border-[#D5DCE3] rounded-md p-4 shadow-sm space-y-3.5">
+            <div className="flex items-center justify-between pb-2 border-b border-[#E5EAEF]">
               <div className="flex items-center space-x-2">
-                <BarChart3 className="w-4 h-4 text-cyan-400" />
-                <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+                <BarChart3 className="w-4 h-4 text-[#526B82]" />
+                <h3 className="text-xs font-bold text-[#1E3A5F] uppercase tracking-wide">
                   PARETO OPTIMAL CANDIDATES (SOLVER OUTPUT)
                 </h3>
               </div>
-              <span className="text-[10px] text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-500/30">
-                4 NON-DOMINATED PLANS
+              <span className="text-[10px] text-[#2E7D5B] bg-[#EDF7F2] px-2 py-0.5 rounded border border-[#C4E5D4] font-semibold font-mono">
+                4 CANDIDATE PLANS
               </span>
             </div>
 
@@ -160,48 +159,48 @@ export default function AIDecisionEngine() {
                   <div
                     key={plan.id}
                     onClick={() => handleSelectPlan(plan)}
-                    className={`p-3.5 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`p-3.5 rounded border transition-colors cursor-pointer flex flex-col justify-between ${
                       isSelected
-                        ? 'bg-[#0E1F42] border-cyan-400 shadow-glow-cyan'
-                        : 'bg-[#060D1E] border-[#142548] hover:border-cyan-500/40'
+                        ? 'bg-[#EBF2F7] border-2 border-[#1E3A5F]'
+                        : 'bg-[#F8FAFC] border-[#E5EAEF] hover:border-[#D5DCE3]'
                     }`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-bold text-white text-xs">{plan.title}</span>
+                        <span className="font-bold text-[#263238] text-xs">{plan.title}</span>
                         {plan.isRecommended && (
-                          <span className="text-[9px] bg-cyan-500 text-black font-bold px-1.5 py-0.2 rounded">
-                            VIKRAM1 PICK
+                          <span className="text-[9px] bg-[#1E3A5F] text-white font-bold px-1.5 py-0.2 rounded font-mono">
+                            RECOMMENDED
                           </span>
                         )}
                       </div>
-                      <p className="text-[10px] text-slate-400 mb-3">{plan.tagline}</p>
+                      <p className="text-[10px] text-[#60717D] mb-3">{plan.tagline}</p>
 
                       <div className="space-y-1.5 text-[10px]">
-                        <div className="flex justify-between text-slate-400">
+                        <div className="flex justify-between text-[#60717D]">
                           <span>Constraint Feasibility:</span>
-                          <span className="text-emerald-400 font-bold">{plan.feasibility}%</span>
+                          <span className="text-[#2E7D5B] font-bold font-mono">{plan.feasibility}%</span>
                         </div>
-                        <div className="flex justify-between text-slate-400">
+                        <div className="flex justify-between text-[#60717D]">
                           <span>Resource Conservation:</span>
-                          <span className="text-cyan-300 font-bold">{plan.resourceScore}%</span>
+                          <span className="text-[#1E3A5F] font-bold font-mono">{plan.resourceScore}%</span>
                         </div>
-                        <div className="flex justify-between text-slate-400">
+                        <div className="flex justify-between text-[#60717D]">
                           <span>Plan Stability (Low-Churn):</span>
-                          <span className="text-white font-bold">{plan.stabilityScore}%</span>
+                          <span className="text-[#263238] font-bold font-mono">{plan.stabilityScore}%</span>
                         </div>
-                        <div className="flex justify-between text-slate-400">
+                        <div className="flex justify-between text-[#60717D]">
                           <span>Operational Risk:</span>
-                          <span className={plan.riskRating === 'Very Low' || plan.riskRating === 'Lowest' ? 'text-emerald-400' : 'text-amber-400'}>
+                          <span className={`font-semibold ${plan.riskRating === 'Very Low' || plan.riskRating === 'Lowest' ? 'text-[#2E7D5B]' : 'text-[#B7791F]'}`}>
                             {plan.riskRating}
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-3 pt-2 border-t border-[#142344] flex items-center justify-between text-[10px]">
-                      <span className="text-slate-500">SCORE: {Math.round((plan.feasibility + plan.resourceScore + plan.stabilityScore) / 3)}%</span>
-                      <span className={`font-bold ${isSelected ? 'text-cyan-400' : 'text-slate-400'}`}>
+                    <div className="mt-3 pt-2 border-t border-[#E5EAEF] flex items-center justify-between text-[10px]">
+                      <span className="text-[#60717D] font-mono">SCORE: {Math.round((plan.feasibility + plan.resourceScore + plan.stabilityScore) / 3)}%</span>
+                      <span className={`font-semibold ${isSelected ? 'text-[#1E3A5F]' : 'text-[#60717D]'}`}>
                         {isSelected ? '✓ SELECTED' : 'SELECT PLAN'}
                       </span>
                     </div>
@@ -212,38 +211,38 @@ export default function AIDecisionEngine() {
           </div>
 
           {/* Section 21: COMMANDER REVIEW CARD */}
-          <div className="p-4 rounded-xl bg-gradient-to-r from-[#08152E] to-[#0A1A3A] border-2 border-cyan-400/60 shadow-glow-cyan space-y-3">
-            <div className="flex items-center justify-between pb-2 border-b border-[#1A2E56]">
+          <div className="p-4 rounded-md bg-white border border-[#D5DCE3] shadow-sm space-y-3">
+            <div className="flex items-center justify-between pb-2 border-b border-[#E5EAEF]">
               <div className="flex items-center space-x-2">
-                <FileSignature className="w-5 h-5 text-emerald-400" />
+                <FileSignature className="w-5 h-5 text-[#1E3A5F]" />
                 <div>
-                  <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+                  <h3 className="text-xs font-bold text-[#1E3A5F] uppercase tracking-wide">
                     COMMANDER REVIEW DESK
                   </h3>
-                  <span className="text-[10px] text-emerald-400">
+                  <span className="text-[10px] text-[#2E7D5B] font-medium font-mono">
                     AI RECOMMENDATION READY FOR DIGITAL SIGN-OFF
                   </span>
                 </div>
               </div>
 
               {planApproved && (
-                <span className="text-xs bg-emerald-500 text-black px-2.5 py-0.5 rounded font-bold">
+                <span className="text-xs bg-[#EDF7F2] text-[#2E7D5B] border border-[#C4E5D4] px-2.5 py-0.5 rounded font-bold font-mono">
                   PLAN APPROVED
                 </span>
               )}
             </div>
 
-            <p className="text-xs text-slate-300">
+            <p className="text-xs text-[#263238]">
               Selected plan <strong>{selectedPlanId}</strong> is validated and compliant with synthetic operational boundaries. Final mission authority is held by the commander.
             </p>
 
             <div className="flex flex-wrap items-center gap-2.5 pt-1">
               <button
                 onClick={() => setApprovalModalOpen(true)}
-                className={`px-5 py-2 rounded-lg text-xs font-bold tracking-wider transition-all flex items-center space-x-1.5 ${
+                className={`px-4 py-1.5 rounded text-xs font-semibold tracking-wide transition-colors flex items-center space-x-1.5 shadow-sm ${
                   planApproved
-                    ? 'bg-emerald-950 border border-emerald-500 text-emerald-300'
-                    : 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-glow-green'
+                    ? 'bg-[#EDF7F2] border border-[#C4E5D4] text-[#2E7D5B]'
+                    : 'bg-[#2E7D5B] hover:bg-[#25664A] text-white'
                 }`}
               >
                 <CheckCircle2 className="w-4 h-4" />
@@ -254,16 +253,16 @@ export default function AIDecisionEngine() {
                 onClick={() => {
                   addNotification('WARNING', 'Revision Requested', 'AI solver requested to evaluate alternative routes.');
                 }}
-                className="px-3.5 py-2 rounded-lg bg-[#0C1A36] hover:bg-[#122752] border border-[#1E3A70] text-slate-300 text-xs font-bold transition-all"
+                className="px-3.5 py-1.5 rounded bg-white hover:bg-[#F4F6F8] border border-[#D5DCE3] text-[#263238] text-xs font-semibold transition-colors"
               >
                 REQUEST REVISION
               </button>
 
               <button
                 onClick={() => setExplainModalOpen(true)}
-                className="px-3.5 py-2 rounded-lg bg-[#0C1A36] hover:bg-[#122752] border border-cyan-500/40 text-cyan-300 text-xs font-bold transition-all flex items-center space-x-1.5"
+                className="px-3.5 py-1.5 rounded bg-white hover:bg-[#F4F6F8] border border-[#D5DCE3] text-[#1E3A5F] text-xs font-semibold transition-colors flex items-center space-x-1.5"
               >
-                <HelpCircle className="w-3.5 h-3.5 text-cyan-400" />
+                <HelpCircle className="w-3.5 h-3.5 text-[#526B82]" />
                 <span>VIEW EXPLANATION</span>
               </button>
             </div>

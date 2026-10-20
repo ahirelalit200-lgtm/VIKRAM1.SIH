@@ -59,7 +59,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040812] bg-tactical-grid text-slate-100 flex flex-col font-sans select-none relative">
+    <div className="min-h-screen bg-[#F4F6F8] text-[#263238] flex flex-col font-sans relative">
       {/* Top Header Bar */}
       <Header />
 

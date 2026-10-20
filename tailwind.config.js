@@ -7,49 +7,41 @@ export default {
   theme: {
     extend: {
       colors: {
-        command: {
-          bg: '#040812',
-          surface: '#091122',
-          card: '#0D1830',
-          cardHover: '#132244',
-          border: '#1B2C52',
-          borderLight: '#2A437C',
-          cyan: '#00F0FF',
-          blue: '#1E6BFF',
-          accent: '#00D8F6',
-          textMuted: '#8E9EB8',
-          textBright: '#F0F4FC',
-          radarGreen: '#00FF88',
-          radarGreenDim: '#00AA55',
-          alertRed: '#FF3355',
-          warningAmber: '#FFB020',
+        app: {
+          bg: '#F4F6F8',
+          sidebar: '#1F2933',
+          sidebarHover: '#2A3644',
+          sidebarActive: '#15202B',
+          primary: '#1E3A5F',
+          primaryHover: '#162C47',
+          steel: '#526B82',
+          steelLight: '#E8ECF0',
+          card: '#FFFFFF',
+          border: '#D5DCE3',
+          borderLight: '#E5EAEF',
+          text: '#263238',
+          textMuted: '#60717D',
+          success: '#2E7D5B',
+          successBg: '#EDF7F2',
+          warning: '#B7791F',
+          warningBg: '#FFF8EB',
+          critical: '#B84242',
+          criticalBg: '#FDF2F2',
         }
       },
       fontFamily: {
         mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
-        sans: ['Inter', 'Rajdhani', 'system-ui', 'sans-serif'],
-        display: ['Rajdhani', 'Orbitron', 'Inter', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'glow-cyan': '0 0 20px -3px rgba(0, 240, 255, 0.35)',
-        'glow-green': '0 0 20px -3px rgba(0, 255, 136, 0.35)',
-        'glow-red': '0 0 20px -3px rgba(255, 51, 85, 0.35)',
-        'hud-border': 'inset 0 0 15px rgba(0, 240, 255, 0.05)',
+        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04)',
       },
-      animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'radar-sweep': 'radarSweep 4s linear infinite',
-        'scanline': 'scanline 8s linear infinite',
-      },
-      keyframes: {
-        radarSweep: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
-        },
-        scanline: {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(1000%)' },
-        }
+      borderRadius: {
+        DEFAULT: '6px',
+        'sm': '4px',
+        'md': '6px',
+        'lg': '8px',
       }
     },
   },
